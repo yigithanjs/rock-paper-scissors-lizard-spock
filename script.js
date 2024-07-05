@@ -27,7 +27,7 @@ let houseSelected = undefined
 let houseNum = undefined
 
 // Options in html form
-const optionHtml = ['<span class="rock"><img src="/images/icon-rock.svg" alt="Rock"></span>', '<span class="paper"><img src="/images/icon-paper.svg" alt="paper"></span>', '<span class="scissors"><img src="/images/icon-scissors.svg" alt="Scissors"></span>', '<span class="lizard"><img src="/images/icon-lizard.svg" alt="Lizard"></span>', '<span class="spock"><img src="/images/icon-spock.svg" alt="Spock" class="spockImg"></span>']
+const optionHtml = ['<span class="rock"><img src="icon-rock.svg" alt="Rock"></span>', '<span class="paper"><img src="icon-paper.svg" alt="paper"></span>', '<span class="scissors"><img src="icon-scissors.svg" alt="Scissors"></span>', '<span class="lizard"><img src="icon-lizard.svg" alt="Lizard"></span>', '<span class="spock"><img src="icon-spock.svg" alt="Spock" class="spockImg"></span>']
 
 // Defining variable about main menu and inGame 
 const mainMenu = document.querySelector("#rpsls")
