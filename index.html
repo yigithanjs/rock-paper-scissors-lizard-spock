@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+<!--  Score
+  Rules
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again
+  -->
+
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; position: absolute; bottom: 8px; color: rgb(219, 219, 219);}
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <section id="title">
+    <img src="/images/logo-bonus.svg" alt="RPSLS">
+    <div>
+      <h3>SCORE</h3>
+      <p id="score">0</p>
+    </div>
+  </section>
+
+  <section id="rpsls">
+    <img src="/images/bg-pentagon.svg" id="pentagon">
+    <div id="row1" class="row"><span id="scissors" class="scissors"><img src="/images/icon-scissors.svg" alt="Scissors"></span></div>
+    <div id="row2" class="row"><span id="spock" class="spock"><img src="/images/icon-spock.svg" alt="Spock" class="spockImg"></span> <span id="paper" class="paper"><img src="/images/icon-paper.svg" alt="paper"></span></div>
+    <div id="row3" class="row"><span id="lizard" class="lizard"><img src="/images/icon-lizard.svg" alt="Lizard"></span> <span id="rock" class="rock"><img src="/images/icon-rock.svg" alt="Rock"></span></div>
+  </section>
+
+  <section id="inGame">
+    <div id="you">
+      <p id="youDesktop">YOU PICKED</p>
+      <p id="userSelection"><span class="scissors"><img src="/images/icon-scissors.svg" alt="Scissors"></span></p>
+      <p>YOU PICKED</p>
+    </div>
+
+    <div id="result">
+      <h1 id="resultInfo">YOU LOSE</h1>
+      <button id="playAgain">PLAY AGAIN</button>
+    </div>
+
+    <div id="house">
+      <p id="houseDesktop">THE HOUSE PICKED</p>
+      <p id="houseSelection"><button class="waiting">House is making a choice...</button></p>
+      <p>THE HOUSE PICKED</p>
+    </div>
+  </section>
+
+  <section id="rules">
+    <button id="openRules">Rules</button>
+  </section>
+
+  <div id="rulesContainer">
+    <div id="rulesHeader">
+      <h1>RULES</h1> <button id="closeIcon"><img src="/images/icon-close.svg" alt="close"></button>
+    </div>
+    <div>
+      <img src="/images/image-rules-bonus.svg" alt="rules" id="ruleExplanation">
+    </div>
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

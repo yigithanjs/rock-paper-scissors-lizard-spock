@@ -1,0 +1,615 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+:root{
+    /* PRIMARY COLORS */
+    --ScissorsStart: hsl(39, 89%, 49%);
+    --ScissorsEnd: hsl(40, 84%, 53%);
+    --PaperStart: hsl(230, 89%, 62%);
+    --PaperEnd: hsl(230, 89%, 65%);
+    --RockStart: hsl(349, 71%, 52%);
+    --RockEnd: hsl(349, 70%, 56%);
+    --LizardStart: hsl(261, 73%, 60%);
+    --LizardEnd: hsl(261, 72%, 63%);
+    --CyanStart: hsl(188, 30%, 76%);
+    --CyanEnd: hsl(189, 58%, 57%);
+
+    /* NEUTRAL */
+    --DarkText: hsl(229, 25%, 31%);
+    --ScoreText: hsl(229, 64%, 46%);
+    --HeaderOutline: hsl(217, 16%, 45%);
+
+    /* Background */
+    --BackgroundGradientStart: hsl(214, 47%, 23%);
+    --BackgroundGradientEnd: hsl(237, 49%, 15%);
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    min-height: 100vh;
+    font-family: "Barlow Semi Condensed", sans-serif;
+    background: radial-gradient(circle, var(--BackgroundGradientStart), var(--BackgroundGradientEnd));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    border: 3px solid var(--HeaderOutline);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 30px 30px 0 30px;
+}
+
+#title img{
+    width: 58px;
+    margin-left: 10px;
+}
+
+#title div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 90px;
+    height: 80px;
+    border-radius: 4px;
+    padding: 20px 0;
+}
+
+#title div h3{
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--ScoreText);
+    position: relative;
+    top: 3px;
+}
+
+#title div p{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--DarkText);
+    letter-spacing: -1px;
+}
+
+
+/* ROCK - PAPER - SCISSORS - LIZARD - SPOCK */
+
+#rpsls{
+    margin-top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    width: 280px;
+}
+
+#row2{
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#row3{
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+#rpsls img:not(#pentagon){
+    width: 32px;
+}
+
+.spockImg{
+    position: relative;
+    left: 6px;
+}
+
+#rpsls span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    cursor: pointer;
+}
+
+#rpsls span:before{
+    content: "";
+    position: absolute;
+    width: 92px;
+    height: 92px;
+    z-index: -1;
+    border-radius: 100%;
+}
+
+.scissors:before{
+    background-color: var(--ScissorsStart);
+}
+
+.spock:before{
+    background-color: var(--CyanEnd);
+}
+
+.paper:before{
+    background-color: var(--PaperStart);
+}
+
+.lizard:before{
+    background-color: var(--LizardStart);
+}
+
+.rock:before{
+    background-color: var(--RockStart);
+}
+
+#pentagon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 225px;
+    z-index: -2;
+}
+
+/* RULES */
+
+#rules{
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+#rules button{
+    background: none;
+    border: 1px solid white;
+    color: white;
+    border-radius: 8px;
+    letter-spacing: 2px;
+    padding: 11px 48px;
+    font-weight: lighter;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#rules button:hover{
+    background-color: white;
+    color: var(--PaperStart);
+}
+
+/* RULES CONTAINER */
+
+#rulesContainer{
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .4s;
+    background-color: white;
+    border-radius: 8px;
+    padding: 28px;
+}
+
+#ruleExplanation{
+    width: 250px;
+}
+
+#rulesHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--DarkText);
+}
+
+#rulesHeader button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+#rulesHeader img{
+    transition: .4s;
+}
+
+#rulesHeader img:hover{
+    transform: rotate(90deg);
+}
+
+/* IN GAME */
+
+#inGame{
+    margin-top: 100px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#inGame img{
+    width: 40px;
+}
+
+#inGame .waiting{
+    width: 85px;
+    height: 85px;
+    border-radius: 100%;
+    background-color: var(--DarkText);
+    border: none;
+    color: #ffffff;
+    font-size: 12.5px;
+    padding: 0 6px;
+    letter-spacing: .4px;
+    line-height: 18px;
+    font-style: italic;
+}
+
+#inGame span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 100%;
+    width: 85px;
+    height: 85px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+#inGame span:before{
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    z-index: -1;
+    border-radius: 100%;
+}
+
+#house, #you{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#you p:last-child, #house p:last-child{
+    margin-top: 30px;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+#youDesktop, #houseDesktop{
+    display: none;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+/* RESULT OF THE GAME */
+
+#result{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 35px;
+    position: absolute;
+    bottom: -250px;
+}
+
+#result h1{
+    font-size: 45px;
+    color: white;
+}
+
+#result button{
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    padding: 15px 60px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 425px){
+    #title{
+        width: 375px;
+    }
+
+    #title img{
+        width: 68px;
+    }
+
+    #title div{
+        width: 100px;
+    }
+
+    #ruleExplanation{
+        width: 275px;
+    }
+}
+
+@media only screen and (min-width: 768px){
+    #title{
+        width: 500px;
+        padding: 14px;
+    }
+
+    #title img{
+        width: 75px;
+    }
+
+    #title div{
+        width: 105px;
+        height: 85px;
+    }
+
+    /* RPSLS */
+
+    #rpsls{
+        margin-top: 90px;
+    }
+
+    .row{
+        width: 340px;
+    }
+
+    #pentagon{
+        width: 300px;
+    }
+
+    #rpsls img:not(#pentagon){
+        width: 35px;
+    }
+
+    #row1{
+        position: relative;
+        bottom: 25px;
+    }
+
+    #row3{
+        position: relative;
+        top: 15px;
+    }
+
+    #rpsls span{
+        width: 75px;
+        height: 75px;
+    }
+    
+    #rpsls span:before{
+        width: 104px;
+        height: 104px;
+    }
+
+    #ruleExplanation{
+        width: 300px;
+    }
+
+    /* IN GAME */
+
+    #inGame img{
+        width: 55px;
+    }
+
+    #inGame span{
+        width: 105px;
+        height: 105px;
+    }
+    
+    #inGame span:before{
+        width: 135px;
+        height: 135px;
+    }
+
+    #you p:last-child, #house p:last-child{
+        font-size: 18.5px;
+        margin-top: 40px;
+    }
+
+    #inGame .waiting{
+        width: 105px;
+        height: 105px;
+    }
+
+    #you, #house{
+        width: 275px;
+    }
+
+    /* RESULT */ 
+
+    #result{
+        bottom: -320px;
+    }
+    
+    #result h1{
+        font-size: 42px;
+        color: white;
+    }
+}
+
+@media only screen and (min-width: 1024px){
+    #title{
+        width: 650px;
+    }
+
+    #title img{
+        width: 90px;
+    }
+
+    #title div{
+        width: 110px;
+        height: 90px;
+    }
+
+    #title div h3{
+        font-size: 12px;
+        top: 5px;
+    }
+
+    #title div p{
+        font-size: 50px;
+    }
+
+        /* RPSLS */
+
+    #rpsls{
+        margin-top: 90px;
+    }
+
+    .row{
+        width: 340px;
+    }
+
+    #pentagon{
+        width: 300px;
+    }
+
+    #rpsls img:not(#pentagon){
+        width: 35px;
+    }
+
+    #row1{
+        position: relative;
+        bottom: 25px;
+    }
+
+    #row3{
+        position: relative;
+        top: 25px;
+    }
+
+    #rpsls span{
+        width: 75px;
+        height: 75px;
+    }
+    
+    #rpsls span:before{
+        width: 98px;
+        height: 98px;
+    }
+
+    /* RPSLS */
+
+    #rpsls{
+        margin-top: 90px;
+    }
+
+    .row{
+        width: 340px;
+    }
+
+    #pentagon{
+        width: 300px;
+    }
+
+    #rpsls img:not(#pentagon){
+        width: 40px;
+    }
+
+    #row1{
+        position: relative;
+        bottom: 20px;
+    }
+
+    #row3{
+        position: relative;
+        top: 20px;
+    }
+
+    #rpsls span{
+        width: 79px;
+        height: 79px;
+    }
+    
+    #rpsls span:before{
+        width: 106px;
+        height: 106px;
+    }
+
+    #ruleExplanation{
+        width: 310px;
+    }
+
+    /* IN GAME */
+
+    #inGame img{
+        width: 90px;
+    }
+
+    #inGame span{
+        width: 155px;
+        height: 155px;
+    }
+    
+    #inGame span:before{
+        width: 200px;
+        height: 200px;
+    }
+
+    #you p:last-child, #house p:last-child{
+        display: none;
+    }
+
+    #youDesktop, #houseDesktop{
+        display: block;
+    }
+
+    #inGame .waiting{
+        width: 155px;
+        height: 155px;
+    }
+
+    #you, #house{
+        width: 300px;
+    }
+
+    /* RESULT */
+
+    #result{
+        position: relative;
+        margin: 0 5px;
+    }
+
+}
+
+@media only screen and (max-height: 725px){
+    /* RULES */
+
+}
+
+@media only screen and (max-height: 725px) and (min-width: 1024px){
+    /* RULES */
+
+    #rules button{
+        position: absolute;
+        right: 35px;
+        bottom: 1px;
+    }
+}
